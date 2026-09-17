@@ -1,9 +1,11 @@
 import React from 'react';
-import './BioLabReport.css'; // Import the CSS file here
-import homosapiens from '../assets/homosapiens.jpg'; // Import the image
-import homosapiens2 from '../assets/homosapiens2.jpg'; // Import the image
+import './BioLabReport.css';
+import homosapiens from '../assets/homosapiens.jpg';
+import homosapiens2 from '../assets/homosapiens2.jpg';
 import ho from '../assets/ho.jpg';
 import ho2 from '../assets/ho2.jpg';
+import ho3 from '../assets/ho3.jpg';
+import ho4 from '../assets/ho4.jpg';
 
 export default function BioLabReport() {
   return (
@@ -30,44 +32,32 @@ export default function BioLabReport() {
 
         {/* Main Content Section */}
         <main className="lab-main">
-          <h2 className="lab-section-title">
-            Хід роботи
-          </h2>
+          <h2 className="lab-section-title">Хід роботи</h2>
 
           {/* Species Info */}
           <div className="lab-species-container">
             
-            {/* Image Placeholder */}
+            {/* Image Grid (Full-bleed on mobile, 2 columns) */}
             <div className="lab-image-wrapper">
-              <div className="lab-image-placeholder">
-                <span><img src={homosapiens} alt="Species Image" /></span>
-              </div>
-              <div className="lab-image-placeholder">
-                <span><img src={homosapiens2} alt="Species Image" /></span>
-              </div>
-              <div className="lab-image-placeholder">
-                <span><img src={ho} alt="Species Image" /></span>
-              </div>
-              <div className="lab-image-placeholder">
-                <span><img src={ho2} alt="Species Image" /></span>
-              </div>
+              <img src={homosapiens} alt="Homo sapiens specimen 1" className="lab-image" />
+              <img src={homosapiens2} alt="Homo sapiens specimen 2" className="lab-image" />
+              <img src={ho2} alt="Homo habilis specimen 3" className="lab-image" />
+              <img src={ho3} alt="Homo habilis specimen 4" className="lab-image" />
+              <img src={ho4} alt="Homo habilis specimen 5" className="lab-image" />
+              <img src={ho} alt="Homo habilis specimen 6" className="lab-image" />
             </div>
 
             {/* Text Information Layout */}
             <div className="lab-content-wrapper">
               
               {/* Nomenclature */}
-              <div>
-                <h3 className="lab-species-name">
-                  Людина розумна
-                </h3>
-                <p className="lab-species-latin">
-                  [Homo sapiens]
-                </p>
+              <div className="lab-stagger-1">
+                <h3 className="lab-species-name">Людина розумна</h3>
+                <p className="lab-species-latin">[Homo sapiens]</p>
               </div>
 
               {/* Taxonomic Position */}
-              <div className="lab-taxonomy">
+              <div className="lab-taxonomy lab-stagger-2">
                 <h4>Таксономічне положення:</h4>
                 <ul>
                   <li>Царство: Тварини [Animalia]</li>
@@ -80,8 +70,7 @@ export default function BioLabReport() {
               </div>
 
               {/* Comparative Analysis */}
-              <div className="lab-comparison-grid">
-                
+              <div className="lab-comparison-grid lab-stagger-3">
                 <div className="lab-card-similar">
                   <h4>Ознаки спорідненості:</h4>
                   <p>
@@ -95,13 +84,13 @@ export default function BioLabReport() {
                     Унікальна здатність до мислення, використання інструментів, розвинена мовна система тощо.
                   </p>
                 </div>
-                
               </div>
+
             </div>
           </div>
 
           {/* Conclusion Section */}
-          <section className="lab-footer">
+          <section className="lab-footer lab-stagger-4">
             <h3>Підсумок роботи</h3>
             <p>
               Людина розумна - подібна до споріднених видів, але має унікальні ознаки, найбільше пов'язані з вищим розвитком ЦНС, максимальною відсутністю шерсті, здатністю до абстрактного мислення та планування...
@@ -109,6 +98,9 @@ export default function BioLabReport() {
           </section>
 
         </main>
+        <footer>
+        <p>Данило Павлюк :)</p>
+        </footer>
       </div>
     </div>
   );
