@@ -1,0 +1,350 @@
+/* BioLabReport.css */
+
+/* Define Entrance Animations */
+@keyframes slideUpFade {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes drawLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Main layout and typography */
+.lab-container {
+  min-height: 100vh;
+  background-color: #f8fafc; /* Slightly lighter for a cleaner look */
+  padding: 1rem;
+  font-family: system-ui, -apple-system, sans-serif;
+  color: #1e293b;
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 0.75rem;
+  transition: transform 0.4s ease;
+}
+
+img:hover {
+  transform: scale(1.02);
+}
+
+.lab-card {
+  max-width: 56rem;
+  margin: 0 auto;
+  background-color: #ffffff;
+  /* Softer, more modern shadow */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.08), 0 10px 15px -3px rgba(0, 0, 0, 0.04);
+  border-radius: 1.25rem;
+  overflow: hidden;
+  /* Trigger the entrance animation */
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Header section with gradient */
+.lab-header {
+  background: linear-gradient(135deg, #047857 0%, #059669 100%);
+  color: #ffffff;
+  padding: 2rem 1.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle background glow effect in the header */
+.lab-header::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  border-radius: 50%;
+}
+
+.lab-title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin: 0 0 1.5rem 0;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.lab-meta {
+  color: #ecfdf5;
+  font-size: 1.125rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.lab-meta p {
+  margin: 0;
+}
+
+.lab-meta-label {
+  color: #a7f3d0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  font-weight: 800;
+}
+
+/* Divider with animated reveal */
+.lab-divider {
+  height: 0.5rem;
+  background: linear-gradient(90deg, #10b981, #34d399, #10b981);
+  background-size: 200% auto;
+  animation: drawLine 1s ease-out forwards;
+}
+
+/* Main content */
+.lab-main {
+  padding: 1.5rem;
+}
+
+.lab-section-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  margin: 0 0 2rem 0;
+  color: #064e3b;
+  border-bottom: 3px solid #a7f3d0;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+  transition: border-color 0.3s ease;
+}
+
+.lab-section-title:hover {
+  border-color: #10b981;
+}
+
+/* Species info container (Flexbox) */
+.lab-species-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.lab-image-wrapper {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.lab-image-placeholder {
+  margin: 1rem auto;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background-color: #f8fafc;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #cbd5e1;
+  color: #94a3b8;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Image placeholder hover animation */
+.lab-image-placeholder:hover {
+  background-color: #f1f5f9;
+  border-color: #10b981;
+  color: #10b981;
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px -5px rgba(16, 185, 129, 0.15);
+}
+
+.lab-content-wrapper {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+/* Nomenclature and Taxonomy */
+.lab-species-name {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0 0 0.25rem 0;
+  line-height: 1.2;
+}
+
+.lab-species-latin {
+  font-size: 1.25rem;
+  font-style: italic;
+  color: #64748b;
+  margin: 0;
+}
+
+.lab-taxonomy {
+  background-color: #f8fafc;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  border: 1px solid #e2e8f0;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lab-taxonomy:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.lab-taxonomy h4 {
+  font-weight: 800;
+  color: #065f46;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.125rem;
+}
+
+.lab-taxonomy ul {
+  font-size: 0.95rem;
+  color: #334155;
+  margin: 0;
+  padding-left: 1.25rem;
+  line-height: 1.7;
+}
+
+.lab-taxonomy li {
+  margin-bottom: 0.25rem;
+}
+
+/* Comparison Grid */
+.lab-comparison-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.lab-card-similar, .lab-card-diff {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover lift animations for comparison cards */
+.lab-card-similar:hover, .lab-card-diff:hover {
+  transform: translateY(-5px);
+}
+
+.lab-card-similar {
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+}
+
+.lab-card-similar:hover {
+  box-shadow: 0 10px 20px -5px rgba(16, 185, 129, 0.15);
+}
+
+.lab-card-similar h4 {
+  font-weight: 800;
+  color: #064e3b;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.125rem;
+}
+
+.lab-card-diff {
+  background-color: #fff1f2;
+  border: 1px solid #fecdd3;
+}
+
+.lab-card-diff:hover {
+  box-shadow: 0 10px 20px -5px rgba(225, 29, 72, 0.15);
+}
+
+.lab-card-diff h4 {
+  font-weight: 800;
+  color: #881337;
+  margin: 0 0 0.75rem 0;
+  font-size: 1.125rem;
+}
+
+.lab-comparison-grid p {
+  font-size: 0.95rem;
+  color: #334155;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Conclusion Footer with deep gradient */
+.lab-footer {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  color: #ffffff;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-top: 3rem;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.lab-footer:hover {
+  transform: translateY(-3px);
+}
+
+.lab-footer h3 {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #34d399;
+  margin: 0 0 1rem 0;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.lab-footer p {
+  color: #e2e8f0;
+  line-height: 1.75;
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+/* Responsive Media Queries (for tablets and desktops) */
+@media (min-width: 768px) {
+  .lab-container {
+    padding: 3rem 1.5rem;
+  }
+  
+  .lab-header {
+    padding: 3rem;
+  }
+
+  .lab-title {
+    font-size: 3rem;
+  }
+
+  .lab-main {
+    padding: 3rem;
+  }
+
+  .lab-comparison-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .lab-footer {
+    padding: 2.5rem 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lab-species-container {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  
+  .lab-image-wrapper {
+    width: 38%;
+    position: sticky;
+    top: 2rem;
+  }
+}
